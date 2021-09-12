@@ -4,7 +4,7 @@
 The aim of this project is to provide an analysis of a group of green energy stocks (potential investment targets). The completed analysis was then refactored to improve speed by obtaining all relevant data from one loop through the larger dataset, rather than looping through it for each target stock.
 
 ## Results
-Our original completed analysis obatined the correct information, but there was significant room to improve the efficiency of the code. The dataset contains 3012 lines for each calendar year, one line describing the activity for a single stock for each market day. The data is sorted alphabetically by ticker, and then by date. The original code created a loop through the entire dataset for each individual stock. 
+Our original completed analysis obtained the correct information, but there was significant room to improve the efficiency of the code. The dataset contains 3012 lines for each calendar year, one line describing the activity for a single stock for each market day. The data is sorted alphabetically by ticker, and then by date. The original code created a loop through the entire dataset for each individual stock. 
 ``` For i = 0 To 11
         ticker = tickers(i)
         totalVolume = 0
@@ -29,6 +29,7 @@ Our original completed analysis obatined the correct information, but there was 
         
         Next j
 ```
+This run took 0.29 seconds for 2017 and 0.28 seconds for 2018.
 
 Given how the data is presented though, it is possible to loop through the rows once, extracting and storing the needed data into arrays. 
 ```'1b) Create three output arrays
@@ -91,6 +92,11 @@ Then we can present it in an appropriate table.
 ```
 
 ![Screenshot_2017 Results](/Resources/Table_2017results.png)
+
+With the refactored analysis the runtime was significantly improved
+
+![Refactored run time 2017](/Resources/VBA_Challenge_2017.png)
+![Refactored run time 2018](/Resources/VBA_Challenge_2018.png)
 
 ## Summary
 
